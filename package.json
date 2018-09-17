@@ -11,7 +11,7 @@
   ],
   "main": "index.js",
   "scripts": {
-    "test": "node test/automated"
+    "test": "node test"
   },
   "repository": {
     "type": "git",
@@ -23,7 +23,6 @@
     "url": "https://github.com/seebigs/anything-to-string/issues"
   },
   "devDependencies": {
-    "dollar-js": "^1.3.0",
     "node-as-browser": "^1.1.3"
   }
 }

@@ -4,10 +4,10 @@
  *   Be as descriptive as possible, but safely fallback no matter what
  */
 
-function stringify (val) {
+function stringify(val) {
     if (val) {
         if (typeof val === 'function') {
-            return 'function';
+            return '"function"';
 
         } else if (typeof val === 'object') {
             if (Array.isArray(val)) {
@@ -18,10 +18,10 @@ function stringify (val) {
                 return '[' + arr.join(',') + ']';
 
             } else if (val === val.self) {
-                return 'window';
+                return '"window"';
 
             } else if (val.nodeType === 9) {
-                return 'document';
+                return '"document"';
 
             } else if (val.nodeType === 1) {
                 var elem = (val.tagName || '').toLowerCase();
@@ -34,21 +34,26 @@ function stringify (val) {
                     elem += '.' + val.className.trim().replace(/ +/g, '.');
                 }
 
-                return elem;
+                return '"' + elem + '"';
 
             } else {
                 var obj = [];
                 for (var x in val) {
                     if (val.hasOwnProperty(x)) {
-                        obj.push(x + ':' + stringify(val[x]));
+                        var actual = val[x];
+                        if (typeof actual !== 'undefined') {
+                            obj.push('"' + x + '":' + stringify(actual));
+                        }
                     }
                 }
                 return '{' + obj.join(',') + '}';
             }
         }
+
+        return '"' + val + '"';
     }
 
-    return '' + val;
+    return '"' + val + '"';
 }
 
 module.exports = {

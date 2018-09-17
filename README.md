@@ -23,5 +23,5 @@ $ npm install anything-to-string --save
 var anythingToString = require('anything-to-string');
 
 anythingToString.stringify(document.getElementsByTagName('div')[0]);
-// div#id.class
+// "div#id.class"
 ```
