@@ -1,6 +1,6 @@
 {
   "name": "anything-to-string",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Convert ANYTHING in JavaScript to a String. Elements, Objects, Arrays, etc.",
   "keywords": [
     "tostring",
